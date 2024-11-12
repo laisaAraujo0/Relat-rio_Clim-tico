@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <!-- html2pdf.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <title>Relatório Climático</title>
+</head>
+<body>
+    <header>
+        <h1>Relatório Climático</h1>
+        <div class="btnsalvar">
+            <button onclick="salvarPDF(document.getElementById('content'), 'Relatório_Clima')" id="salvarBtn">🖫 SALVAR</button>
+        </div>
+    </header>
+
+    <main id="content">
+        <div class="container">
+            <div class="box">
+                <div class="cont">
+                    <h2>Informações</h2>
+                    <p>Preencha de acordo com os seus dados:</p>
+                </div>
+                <div class="form-group">
+                    <label for="estado">Estado:</label>
+                    <select id="estado" onchange="listarCidades()">
+                        <option value="">Selecione o Estado</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="cidade">Cidade:</label>
+                    <select id="cidade" onchange="atualizarDados()" >
+                        <option value="">Selecione a Cidade</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="data">Período de Coleta:</label>
+                    <input type="date" id="data" onchange="atualizarDados()" disabled>
+                </div>
+            </div>
+
+            <div class="box-ar">
+                <h2>Qualidade do Ar</h2>
+                <div id="qualidade-ar-status"></div>
+                <div id="qualidade-ar-dados">
+                    <p class="indicadores"><b>CO:</b> <span id="CO"></span></p>
+                    <p class="indicadores"><b>NO<sub>2</sub>:</b> <span id="NO2"></span></p>
+                    <p class="indicadores"><b>O<sub>3</sub>:</b> <span id="O3"></span></p>
+                    <p class="indicadores"><b>PM<sub>2.5</sub>:</b> <span id="PM25"></span></p>
+                    <p class="indicadores"><b>PM<sub>10</sub>:</b> <span id="PM10"></span></p>
+                    <p class="indicadores"><b>SO<sub>2</sub>:</b> <span id="SO2"></span></p>
+                </div>
+            </div>
+        </div>
+
+        <p id="info"></p>
+
+        <h3>Previsão do Dia</h3>
+        <div id="tabela-container">
+            <table id="tabela-previsao">
+                <thead>
+                    <tr>
+                        <th>Horário</th>
+                        <th>Condição</th>
+                        <th>Chuva (%)</th>
+                        <th>Temperatura (°C)</th>
+                        <th>Sensação (°C)</th>
+                        <th>Umidade (%)</th>
+                        <th>Vento (Kph)</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </main>
+     
+    <footer>
+        <h2>Relatório Climático</h2>
+    </foote>
+
+    <script src="js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js" integrity="sha512-GsLlZN/3F2ErC5ifS5QtgpiJtWd43JWSuIgh7mbzZ8zBps+dvLusV+eNQATqgA/HdeKFVgA5v3S/cIrLF7QnIg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+</html>
